@@ -37,7 +37,7 @@ function countBmi(){
       
   var result = '';
   if(bmi<18.5){
-    result = 'Underweight';
+    result = 'Underweight comment';
      }else if(18.5<=bmi&&bmi<=24.9){
     result = 'Healthy';
      }else if(25<=bmi&&bmi<=29.9){
