@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("${DOCKER_IMAGE}", ' Dockerfile .')
+                    docker.build("${DOCKER_IMAGE}", '-f Dockerfile .')
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         steps {
             script {
                 bat """
-                FOR /F "tokens=*" %%i IN ('docker ps -aq  "name=${CONTAINER_NAME}"') DO (
+                FOR /F "tokens=*" %%i IN ('docker ps -aq -f "name=${CONTAINER_NAME}"') DO (
                     docker stop %%i || echo "No running container"
                     docker rm %%i || echo "No container to remove"
                 )
