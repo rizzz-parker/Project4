@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     // Run Docker container based on the built image
-                    docker.image("${DOCKER_IMAGE}").run("-p ${PORT_MAPPING} --name ${CONTAINER_NAME}")
+                    docker.image("${DOCKER_IMAGE}").run("-d -p ${PORT_MAPPING} --name ${CONTAINER_NAME}")
                 }
             }
         }
